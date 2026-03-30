@@ -3,33 +3,48 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "AI-Powered Chatbot Assistant",
+    title: "MediMeets — Smart Health Consultation System",
     description:
-      "An intelligent chatbot with real-time conversation handling, API integration, and context-aware dialogue using NLP.",
-    image: "/projects/chatbot.png",
-    tags: ["Python", "Flask", "NLP", "JavaScript"],
-    demoUrl: "#",
-    githubUrl: "https://github.com/kumarsaurabhyadav",
+      "Full-stack telehealth platform enabling secure video consultations and appointment scheduling with Clerk auth and Prisma + PostgreSQL.",
+    image: "/projects/medimeets.png",
+    tags: ["Next.js", "React.js", "Prisma", "PostgreSQL", "Tailwind CSS"],
+    points: [
+      "Secure video consultations + appointment scheduling flow",
+      "Authentication with Clerk, data layer with Prisma + Postgres",
+      "Reusable, responsive UI with Tailwind CSS",
+    ],
+    demoUrl: "https://medimeet-murex.vercel.app",
+    githubUrl: null,
   },
   {
     id: 2,
     title: "Perplexity AI Clone",
     description:
-      "A question-answering web app that retrieves and summarizes web data using LLMs, with citation-backed responses.",
+      "AI-powered Q&A web app delivering citation-backed real-time answers with improved speed via caching and dynamic rendering.",
     image: "/projects/perplexity-ai.png",
     tags: ["Next.js", "React.js", "OpenAI API", "Tailwind CSS"],
+    points: [
+      "Citation-backed answers with a fast, clean UX",
+      "Caching + dynamic rendering to reduce response time",
+      "Prompting + context handling for better answer quality",
+    ],
     demoUrl: "https://perplexity-ai-clone-4ymu8ux0b-kumar-saurabh-yadavs-projects.vercel.app",
-    githubUrl: "https://github.com/kumarsaurabhyadav",
+    githubUrl: null,
   },
   {
     id: 3,
-    title: "AI-Based Online Course Generator",
+    title: "AI-Based Course Generator",
     description:
-      "An AI-powered platform that creates personalized online courses, lessons, quizzes, and learning paths.",
+      "AI-driven learning platform generating personalized courses and quizzes with progress tracking and adaptive recommendations.",
     image: "/projects/coursegen.png",
-    tags: ["React.js", "Next.js", "GPT-4 API", "Tailwind CSS"],
+    tags: ["React.js", "Next.js", "GPT API", "Tailwind CSS"],
+    points: [
+      "Personalized course + quiz generation using GPT models",
+      "Progress tracking and adaptive learning recommendations",
+      "Responsive UI built with Tailwind CSS",
+    ],
     demoUrl: "https://online-ai-learning-platform.vercel.app",
-    githubUrl: "https://github.com/kumarsaurabhyadav",
+    githubUrl: null,
   },
 ];
 
@@ -48,11 +63,14 @@ export const ProjectsSection = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, key) => (
+          {projects.map((project) => (
             <div
-              key={key}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
+              key={project.id}
+              className="premium-surface premium-surface-hover card-hover text-left"
             >
+              <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute -top-24 -left-24 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
+              </div>
               <div className="h-48 overflow-hidden">
                 <img
                   src={project.image}
@@ -64,7 +82,10 @@ export const ProjectsSection = () => {
               <div className="p-6">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
-                    <span className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground">
+                    <span
+                      key={`${project.id}-${tag}`}
+                      className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground"
+                    >
                       {tag}
                     </span>
                   ))}
@@ -74,22 +95,36 @@ export const ProjectsSection = () => {
                 <p className="text-muted-foreground text-sm mb-4">
                   {project.description}
                 </p>
+
+                <ul className="mb-5 space-y-2 text-sm text-muted-foreground list-disc pl-5 marker:text-primary">
+                  {project.points.map((pt) => (
+                    <li key={`${project.id}-${pt}`}>{pt}</li>
+                  ))}
+                </ul>
                 <div className="flex justify-between items-center">
                   <div className="flex space-x-3">
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <Github size={20} />
-                    </a>
+                    {project.demoUrl ? (
+                      <a
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                        aria-label={`Open demo: ${project.title}`}
+                      >
+                        <ExternalLink size={20} />
+                      </a>
+                    ) : null}
+                    {project.githubUrl ? (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                        aria-label={`Open GitHub: ${project.title}`}
+                      >
+                        <Github size={20} />
+                      </a>
+                    ) : null}
                   </div>
                 </div>
               </div>

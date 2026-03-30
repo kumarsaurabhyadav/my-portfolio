@@ -11,14 +11,21 @@ export const AboutSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h3 className="text-2xl font-semibold">Computer Science Student & Web Developer</h3>
+            <h3 className="text-2xl font-semibold">
+              Full-Stack Developer (React, Next.js, Node.js)
+            </h3>
 
             <p className="text-muted-foreground">
-              I'm a Computer Science Engineering student at Chandigarh University with a strong interest in full-stack web development and AI-powered applications. I enjoy building responsive, modern interfaces using React, Next.js, and integrating intelligent features with tools like GPT and OpenAI APIs.
+              Computer Science graduate with hands-on experience in full-stack web
+              development using React.js, Next.js, Node.js, and REST APIs. I’ve
+              built scalable web applications and AI-powered platforms including
+              telehealth and intelligent search systems.
             </p>
 
             <p className="text-muted-foreground">
-              From AI chatbots to personalized learning platforms, I’m passionate about creating smart, scalable, and user-focused digital experiences that solve real-world problems.
+              Strong foundation in Data Structures, Algorithms, and System
+              Design, with experience delivering responsive and
+              performance-focused user interfaces.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
@@ -44,10 +51,10 @@ export const AboutSection = () => {
                   <Code className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg"> Web Development</h4>
+                  <h4 className="font-semibold text-lg">Web Development</h4>
                   <p className="text-muted-foreground">
-                    Creating responsive websites and web applications with
-                    modern frameworks.
+                    Building responsive web apps with React.js, Next.js, Node.js
+                    and REST APIs.
                   </p>
                 </div>
               </div>
@@ -60,8 +67,8 @@ export const AboutSection = () => {
                 <div className="text-left">
                   <h4 className="font-semibold text-lg">UI/UX Design</h4>
                   <p className="text-muted-foreground">
-                    Designing intuitive user interfaces and seamless user
-                    experiences.
+                    Delivering clean, accessible interfaces with Tailwind CSS
+                    and reusable components.
                   </p>
                 </div>
               </div>
@@ -73,9 +80,12 @@ export const AboutSection = () => {
                 </div>
 
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg">AI & Project Experience</h4>
+                  <h4 className="font-semibold text-lg">
+                    AI & Project Experience
+                  </h4>
                   <p className="text-muted-foreground">
-                    Developed AI-driven apps like chatbots and course generators using GPT and OpenAI APIs, from concept to deployment.
+                    Built AI-driven apps like citation-based Q&A and course
+                    generation using GPT/OpenAI APIs.
                   </p>
                 </div>
               </div>

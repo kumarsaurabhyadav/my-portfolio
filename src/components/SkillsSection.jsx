@@ -3,26 +3,36 @@ import { cn } from "@/lib/utils";
 
 const skills = [
   // Programming Languages
-  { name: "C", level: 80, category: "programming" },
   { name: "C++", level: 85, category: "programming" },
-  { name: "Java", level: 75, category: "programming" },
-  { name: "Python", level: 80, category: "programming" },
+  { name: "JavaScript", level: 88, category: "programming" },
+  { name: "SQL", level: 80, category: "programming" },
 
   // Web Technologies
+  { name: "HTML5", level: 90, category: "web" },
+  { name: "CSS3", level: 85, category: "web" },
   { name: "React.js", level: 90, category: "web" },
   { name: "Next.js", level: 85, category: "web" },
   { name: "Tailwind CSS", level: 90, category: "web" },
-  { name: "JavaScript", level: 85, category: "web" },
 
   // Tools & Platforms
-  { name: "Git/GitHub", level: 90, category: "tools" },
-  { name: "VS Code", level: 95, category: "tools" },
-  { name: "Flask", level: 70, category: "tools" },
-  { name: "spaCy", level: 65, category: "tools" },
-  { name: "OpenAI API", level: 80, category: "tools" },
+  { name: "Node.js", level: 82, category: "tools" },
+  { name: "Express.js", level: 80, category: "tools" },
+  { name: "React Native", level: 78, category: "tools" },
+  { name: "Git", level: 90, category: "tools" },
+  { name: "GitHub", level: 90, category: "tools" },
+
+  // Databases
+  { name: "PostgreSQL", level: 80, category: "databases" },
+  { name: "Prisma", level: 78, category: "databases" },
+
+  // Concepts
+  { name: "DSA", level: 85, category: "concepts" },
+  { name: "OOP", level: 82, category: "concepts" },
+  { name: "System Design", level: 75, category: "concepts" },
+  { name: "REST APIs", level: 85, category: "concepts" },
 ];
 
-const categories = ["all", "programming", "web", "tools"];
+const categories = ["all", "programming", "web", "tools", "databases", "concepts"];
 
 export const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -33,9 +43,12 @@ export const SkillsSection = () => {
   return (
     <section id="skills" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
           My <span className="text-primary"> Skills</span>
         </h2>
+        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+          A snapshot of the technologies and core concepts I work with.
+        </p>
 
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map((category, key) => (
@@ -46,7 +59,7 @@ export const SkillsSection = () => {
                 "px-5 py-2 rounded-full transition-colors duration-300 capitalize",
                 activeCategory === category
                   ? "bg-primary text-primary-foreground"
-                  : "bg-secondary/70 text-forefround hover:bd-secondary"
+                  : "bg-secondary/70 text-foreground hover:bg-secondary"
               )}
             >
               {category}
@@ -58,8 +71,11 @@ export const SkillsSection = () => {
           {filteredSkills.map((skill, key) => (
             <div
               key={key}
-              className="bg-card p-6 rounded-lg shadow-xs card-hover"
+              className="premium-surface premium-surface-hover card-hover text-left p-6"
             >
+              <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute -bottom-24 -right-24 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
+              </div>
               <div className="text-left mb-4">
                 <h3 className="font-semibold text-lg"> {skill.name}</h3>
               </div>

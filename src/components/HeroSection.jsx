@@ -20,8 +20,14 @@ export const HeroSection = () => {
                         </span>
                     </h1>
 
-                    <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-                        I’m a Computer Science student at Chandigarh University, passionate about building intelligent, user-focused web solutions. I create responsive, modern interfaces using React, Next.js, and AI tools—blending creativity and code to bring ideas to life.
+                    <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
+                        Computer Science graduate focused on full-stack development using{" "}
+                        <span className="text-foreground font-medium">
+                            React.js, Next.js, Node.js
+                        </span>{" "}
+                        and <span className="text-foreground font-medium">REST APIs</span>.
+                        I build responsive, performance-first web experiences and AI-powered
+                        products.
                     </p>
 
                     <div className="pt-4 opacity-0 animate-fade-in-delay-4">
